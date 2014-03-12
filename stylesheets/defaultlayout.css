@@ -3,14 +3,16 @@ html {
 }
 
 body {
+	background: url("../images/body-bg.png") repeat scroll 0 0 #E7E7E7;
+	border: 10px none;
 	color: #6D6D6D;
+	height: 100%;
 	margin: 0px;
 	padding: 0px;/**/
-	height: 100%;
 	text-align: center;/**/
-	border-color:red;
-	border: 10px;
 	text-shadow: 0 1px 0 rgba(255, 255, 255, 0.8);
+	font-size: 1em;
+	line-height: 1.5;
 }
 
 #container {
