@@ -11,6 +11,31 @@ body {
 	border: 10px;
 }
 
+header h1 {
+	color: #303030;
+	font-family: 'Chivo','Helvetica Neue',Helvetica,Arial,serif;
+	font-size: 48px;
+	font-weight: 900;
+	letter-spacing: -1px;
+	line-height: 1.2;
+}
+
+#downloads {
+	margin-bottom: 40px;
+}
+
+.clearfix:after {
+	clear: both;
+	content: '.';
+	display: block;
+	visibility: hidden;
+	height: 0;
+}
+
+.clearfix {
+	display: inline-block;
+}
+
 .site-nav {
 	position: absolute;
 	left: 0;
