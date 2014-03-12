@@ -108,6 +108,7 @@
 }
 
 .scroll-region {
+	background: url("../images/highlight-bg.jpg") no-repeat scroll 50% 0 rgba(0, 0, 0, 0);
     height: 100%;
 	overflow: auto;
 
