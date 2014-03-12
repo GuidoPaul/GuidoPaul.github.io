@@ -94,9 +94,9 @@
     opacity: 0;
 }
 
-.container {
-	background: url(../images/bg_1.jpg);
-	color:#333332;
+#container {
+	background: url("../images/hightlight-bg.jpg") no-repeat scroll 50% 0 rgba(0, 0, 0, 0);
+	min-height: 595px;
 	height: 100%;
 	width:100%;  /**/
 	margin:0 auto;
@@ -108,11 +108,11 @@
     transition: transform .2s cubic-bezier(0.2,0.3,0.25,0.9);
 }
 
-.site-nav-transition .container {
+.site-nav-transition #container {
 	position: fixed;
 }
 
-.site-nav-drawer-open .container {
+.site-nav-drawer-open #container {
 	-webkit-transform: translate3d(280px,0,0);
 	-moz-transform: translate3d(280px,0,0);
 	-o-transform: translate3d(280px,0,0);
