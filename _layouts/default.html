@@ -15,6 +15,7 @@
 		<!-- <link rel="stylesheet" type="text/css" href="stylesheets/pygment_trac.css" media="screen" /> -->
 		<!-- <link rel="stylesheet" type="text/css" href="stylesheets/print.css" media="print" /> -->
 		<link rel="stylesheet" type="text/css" href="stylesheets/defaultlayout.css" media="print" />
+		<link rel="stylesheet" type="text/css" href="stylesheets/nav.css" media="print" />
 		<script src="javascripts/jquery-2.0.3.js"></script>
 		<!--[if lt IE 9]>
 		<script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
@@ -44,6 +45,19 @@
 		<div class="site-nav-overlay"></div>
 
 		{{ content }}
+
+		<script>
+			var body = $('body');
+			$('.site-nav-logo').click(function() {
+				body.addClass('site-nav-transition site-nav-drawer-open');
+			});
+			$('.site-nav-overlay').click(function(){
+				body.removeClass('site-nav-drawer-open');
+				setTimeout(function () {
+					body.removeClass("site-nav-transition");
+				}, 300);
+			});
+		</script>
 
 	</body>
 </html>
