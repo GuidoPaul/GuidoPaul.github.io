@@ -16,7 +16,7 @@ body {
 }
 
 #container {
-	background: url("../images/highlight-bg.jpg");
+	background: url("../images/highlight-bg.jpg") no-repeat scroll 50% 0 rgba(0, 0, 0, 0);
 	min-height: 595px;
 	height: 100%;
 	width:100%;  /**/
