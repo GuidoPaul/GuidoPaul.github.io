@@ -3,12 +3,14 @@ html {
 }
 
 body {
+	color: #6D6D6D;
 	margin: 0px;
 	padding: 0px;/**/
 	height: 100%;
 	text-align: center;/**/
 	border-color:red;
 	border: 10px;
+	text-shadow: 0 1px 0 rgba(255, 255, 255, 0.8);
 }
 
 #container {
@@ -25,6 +27,7 @@ header {
 	padding-bottom: 25px;
 	padding-top: 35px;
 	display: block; /**/
+	vertical-align: baseline;
 }
 
 header h1 {
