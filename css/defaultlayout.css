@@ -1,0 +1,243 @@
+html {
+	height: 100%;
+}
+
+body {
+	margin: 0px;
+	padding: 0px;/**/
+	height: 100%;
+	text-align: center;/**/
+	border-color:red;
+	border: 10px;
+}
+
+.site-nav {
+	position: absolute;
+	left: 0;
+	top: 0;
+	bottom: 0;
+	outline: 0;
+	background-color: #191918;
+}
+
+.icons-logo {
+	font-size: 200%;
+}
+
+.site-nav-scrollable-container {
+	display: none;
+	overflow: auto;
+	height: 100%;
+	text-align: left;  /**/
+}
+
+.site-nav-scrollable-container ul {
+	padding: 0;
+	margin: 0;
+	list-style: none;
+}
+
+.site-nav-scrollable-container a {
+	text-decoration: none;
+}
+
+.site-nav-scrollable-container strong {
+	font: white;
+}
+
+.site-nav-transition .site-nav-scrollable-container {
+	display: block;
+	width: 280px;
+}
+
+.site-nav-list-item-btn {
+	color: #b3b3b1;
+	display: block;
+	padding: 0 25px;
+	height: 42px;
+	line-height: 45px;
+	border: 0;
+	background: black;
+}
+
+.site-nav-list-item-btn:hover {
+	color: #fff;
+	outline: 0;
+}
+
+.site-nav-overlay {
+	display: none;
+	position: absolute;
+	left: 0;
+	top: 0;
+	right: 0;
+	bottom: 0;
+}
+
+.site-nav-drawer-open .site-nav-overlay {
+	left: 280px;
+	z-index: 900;
+	display: block;
+}
+
+.site-nav-logo {
+	width: 44px;
+	height: 44px;
+	background: #333332;
+	color: #fff;
+	position: absolute;
+	top: 10px;
+	left: 10px;
+	border: 0;
+
+    opacity: 1;
+
+	-webkit-transition: opacity .3s linear;
+	-moz-transition: opacity .3s linear;
+	-o-transition: opacity .3s linear;
+	-ms-transition: opacity .3s linear;
+	transition: opacity .3s linear;
+}
+
+.site-nav-drawer-open .site-nav-logo {
+	display: none;
+}
+
+.site-nav-transition .site-nav-logo {
+    opacity: 0;
+}
+
+.container {
+	background: url(../images/bg_1.jpg);
+	color:#333332;
+	height: 100%;
+	width:100%;  /**/
+	margin:0 auto;
+
+	-webkit-transition: -webkit-transform .2s cubic-bezier(0.2,0.3,0.25,0.9);
+    -moz-transition: -moz-transform .2s cubic-bezier(0.2,0.3,0.25,0.9);
+    -o-transition: -o-transform .2s cubic-bezier(0.2,0.3,0.25,0.9);
+    -ms-transition: -ms-transform .2s cubic-bezier(0.2,0.3,0.25,0.9);
+    transition: transform .2s cubic-bezier(0.2,0.3,0.25,0.9);
+}
+
+.site-nav-transition .container {
+	position: fixed;
+}
+
+.site-nav-drawer-open .container {
+	-webkit-transform: translate3d(280px,0,0);
+	-moz-transform: translate3d(280px,0,0);
+	-o-transform: translate3d(280px,0,0);
+	-ms-transform: translate3d(280px,0,0);
+	transform: translate3d(280px,0,0);
+}
+
+.scroll-region {
+    height: 100%;
+	overflow: auto;
+
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	-ms-box-sizing: border-box;
+	box-sizing: border-box;
+}
+
+.maincontainer {
+	text-align: left;
+	width: 800px;
+	height: 100%;
+	margin: 0 auto;
+}
+
+.maincontainer .header {
+	clear: both;
+	width: 100%;
+	font-size: 130%;
+	padding-top: 40px;
+	border-bottom: 1px solid #000000;
+	text-shadow: 1px 1px 1px #DDDDDD;
+}
+
+.header h1 {
+	margin-top: 0px;
+	margin-bottom: 15px;
+	vertical-align: baseline;
+}
+
+.header a {
+	color: #000000;
+}
+
+.header h1 span {
+	color: #666666;
+    font-family: "Knewave",cursive;
+    font-size: 40%;
+    font-style: italic;
+    font-weight: normal;
+    margin-left: 10px;
+}
+
+.maincontainer .main {
+	clear: both;
+	width: 100%;
+}
+
+.main h3 {
+	margin-top: 0px;
+	margin-bottom: 0px;
+}
+
+.main .Blog {
+	clear: both;
+	width: 100%;
+	padding-top: 15px;
+}
+
+.main .Projects {
+	clear: both;
+	width: 100%;
+	padding-top: 15px;
+}
+
+.main .Projects ul {
+	padding-top: 15px;
+	padding-bottom: 15px;
+}
+
+.maincontainer .footer {
+	clear: both;
+	width: 100%;
+	border-top: 1px solid #000000;
+	text-shadow: 1px 1px 1px #DDDDDD;
+	vertical-align: baseline;
+	padding-top: 15px;
+	padding-bottom: 15px;
+}
+
+.footer h3 {
+	margin-top: 0px;
+	margin-bottom: 0px;
+	padding-bottom: 15px;
+}
+
+.footer span, .footer a {
+	padding-left: 40px;
+}
+
+a {
+	text-decoration: none;
+}
+
+ul.post {
+	margin-bottom: 0px;
+	margin-top: 0px;
+	list-style-type: none;
+}
+
+ul.post span {
+	color: #AAAAAA;
+	font-family: Monaco, "Courier New", monospace;
+    font-size: 80%;
+}
+

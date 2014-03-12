@@ -1,0 +1,90 @@
+---
+layout: default
+title: Shenglin Corner
+---
+<div class="site-nav">
+
+	<button class="site-nav-logo">
+		<span class="icons-logo">G</span>
+	</button>
+
+	<div class="site-nav-scrollable-container">
+		<ul class="site-nav-list">
+			<li>
+				<a class="site-nav-list-item-btn" href="http://baoshenglin.github.io">
+					Home
+				</a>
+			</li>
+			<li>
+				<a class="site-nav-list-item-btn" href="https://github.com/BaoShenglin">
+					Fork me on Github
+				</a>
+			</li>
+		</ul>
+	</div>
+
+</div>
+
+<div class="site-nav-overlay">
+
+</div>
+
+<div class="container">
+	<div class="scroll-region">
+
+		<div class="maincontainer">
+
+			<div class="header">
+				<h1>
+					<a href="/">Shenglin's Corner</a>
+					<span>Learning, sharing, improving!</span>
+				</h1>
+			</div>
+
+			<div class="main">
+				<div class="Blog">
+					<h3>Blog Posts</h3>
+					<ul class="post">
+						{% for post in site.posts %}
+					　　<li>
+							<span>{{ post.date | date_to_string }}</span> &raquo;
+							<a href="{{ post.url }}">{{ post.title }}</a>
+						</li>
+					　　{% endfor %}
+					</ul>
+				</div>
+				<div class="Projects">
+					<h3>Prominent Open Source Projects</h3>
+					<ul class="post">
+						<li><a href="https://github.com/BaoShenglin/Vim">Vim:</a> A common text editor.</li>	
+						<li><a href="https://github.com/BaoShenglin/Chat">Chat:</a> A simple LAN chat tool.</li>	
+						<li><a href="https://github.com/BaoShenglin/TankWar">TankWar:</a> A simple LAN tank war.</li>	
+					</ul>
+				</div>
+			</div>
+
+			<div class="footer">
+				<h3>Fork me on Github</h3>
+				<a href="https://github.com/BaoShenglin">Github</a>
+				<h3>Contact Information:</h3>
+				<span>Baoshenglin1994@gmail.com</span>
+			</div>
+
+		</div>
+
+	</div>
+</div>
+
+<script>
+	var body = $('body');
+	$('.site-nav-logo').click(function() {
+		body.addClass('site-nav-transition site-nav-drawer-open');
+	});
+	$('.site-nav-overlay').click(function(){
+		body.removeClass('site-nav-drawer-open');
+		setTimeout(function () {
+			body.removeClass("site-nav-transition");
+		}, 300);
+	});
+</script>
+
