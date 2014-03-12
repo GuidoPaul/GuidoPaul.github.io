@@ -1,15 +1,48 @@
+<!--
+**
+* Author: GuidoPaul
+* Contact: Baoshenglin1994@gmail.com
+* Create Date: 2014.3.12
+**
+-->
 <!DOCTYPE html>
 <html>
 	<head>
-		<meta http-equiv="Content-type" content="text/html; charset=utf-8" />
-		<script src="script/jquery-2.0.3.js"></script>
-		<link rel="stylesheet" href="css/defaultlayout.css" type="text/css" />
-		<title>{{ page.title }}</title>
+		<meta charset='utf-8'>
+		<meta http-equiv="X-UA-Compatible" content="chrome=1">
+		<link href='https://fonts.googleapis.com/css?family=Chivo:900' rel='stylesheet' type='text/css'>
+		<link rel="stylesheet" type="text/css" href="stylesheets/stylesheet.css" media="screen" />
+		<link rel="stylesheet" type="text/css" href="stylesheets/pygment_trac.css" media="screen" />
+		<link rel="stylesheet" type="text/css" href="stylesheets/print.css" media="print" />
+		<script src="javascripts/jquery-2.0.3.js"></script>
+		<!--[if lt IE 9]>
+		<script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+		<![endif]-->
+		<title>GuidoPaul</title>
 	</head>
 	<body>
+		<div class="site-nav">
+			<button class="site-nav-logo">
+				<span class="icons-logo">G</span>
+			</button>
+			<div class="site-nav-scrollable-container">
+				<ul class="site-nav-list">
+					<li>
+						<a class="site-nav-list-item-btn" href="http://baoshenglin.github.io">
+							Home
+						</a>
+					</li>
+					<li>
+						<a class="site-nav-list-item-btn" href="https://github.com/BaoShenglin">
+							Fork me on Github
+						</a>
+					</li>
+				</ul>
+			</div>
+		</div>
+		<div class="site-nav-overlay"></div>
 
 		{{ content }}
-
 
 	</body>
 </html>
