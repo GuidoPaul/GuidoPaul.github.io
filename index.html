@@ -5,7 +5,7 @@ layout: default
 {% for post in site.posts %}
 <article class="entry-article">
 	<header class="entry-header">
-		<p><span>{{ post.date | date_to_string }}</span></p>
+		<span>{{ post.date | date_to_string }}</span>
 		<h1 class="entry-title">
 			<a href=" {{ post.url }} ">
 				{{ post.title }}
