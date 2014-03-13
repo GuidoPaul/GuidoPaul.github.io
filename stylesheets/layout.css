@@ -49,9 +49,11 @@ header h1 {
 	font-weight: 900;
 	letter-spacing: -1px;
 	line-height: 1.2;
+	margin-bottom: 0px;
+	margin-top: 0px;
 }
 
-.font {
+header h1 span {
 	color: #666666;
 	font-family: "Knewave", cursive;
 	font-size: 40%;
