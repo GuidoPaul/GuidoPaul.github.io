@@ -115,6 +115,23 @@ header h1 span {
 	font-weight: bold;
 }
 
+#main_content footer a {
+	background: none repeat scroll 0 0 #EBEBEB;
+	font-family: "Cantata One",Georgia,Times,"Times New Roman",serif;
+	color: #6D6D6D;
+	display: inline-block;
+	padding: 0.4em 0.8em;
+	text-decoration: none;
+	transition: background-color 0.5s ease 0s;
+	font-weight: bold;
+}
+
+#main_content footer a:hover {
+	background: none repeat scroll 0 0 #6D6D6D;
+	color: #F8F8F8;
+	text-shadow: none;
+}
+
 footer {
 	background: url("../images/hr.png") no-repeat scroll 0 0 rgba(0, 0, 0, 0);
 	color: #AAAAAA;
