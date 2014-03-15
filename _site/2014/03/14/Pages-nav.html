@@ -1,0 +1,292 @@
+<!--
+**
+* Author: GuidoPaul
+* Contact: Baoshenglin1994@gmail.com
+* Create Date: 2014.3.12
+**
+-->
+<!DOCTYPE html>
+
+<html>
+
+	<head>
+		<meta charset='utf-8'>
+		<!-- <meta http-equiv="X-UA-Compatible" content="chrome=1"> -->
+		<link href='https://fonts.googleapis.com/css?family=Chivo:900' rel='stylesheet' type='text/css'>
+		<!-- <link type="text/css" rel="stylesheet" href="http://fonts.googleapis.com/css?family=Knewave"> -->
+		<!-- <link type="text/css" rel="stylesheet" href="http://fonts.googleapis.com/css?family=Cantata+One"> -->
+		<link rel="stylesheet" type="text/css" href="/stylesheets/postlayout.css" />
+		<link rel="stylesheet" type="text/css" href="/stylesheets/nav.css" />
+		<script src="/javascripts/jquery-2.0.3.js"></script>
+		<!--[if lt IE 9]>
+		<script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+		<![endif]-->
+		<title>GuidoPaul</title>
+	</head>
+
+	<body>
+		<div class="site-nav">
+			<button class="site-nav-logo">
+				<span class="icons-logo">G</span>
+			</button>
+			<div class="site-nav-scrollable-container">
+				<ul class="site-nav-list">
+					<li>
+						<a class="site-nav-list-item-btn" href="http://guidopaul.github.io/">
+							Home
+						</a>
+					</li>
+					<li>
+						<a class="site-nav-list-item-btn" href="https://github.com/GuidoPaul">
+							Fork me on Github
+						</a>
+					</li>
+				</ul>
+			</div>
+		</div>
+		<div class="site-nav-overlay"></div>
+		<div id="container">
+			<div class="scroll-region">
+				<div class="inner">
+					<header>
+						<h1>Pages Nav</h1>
+					</header>
+					<hr />
+					<section id="main_content">
+
+						<p>前几天花了一个下午的时间在我的GitHub网页上做了一个具有简易功能的导航栏。 这个导航栏可以在我们使用不到导航栏的时候，将它隐藏起来。 相对有效的减少普通导航栏占用屏幕空间的问题，并且十分美观。 这个导航栏的功能十分简单，操作时只需要轻轻一点击界面右上角的“G”图标， 该“G”图标就会随之消失，与此同时会从浏览器的左侧划出导航栏， 然后再一次点击右侧的浏览器的内容就可以使导航栏收回。并且“G”图标又会重新回到刚才的界面上。 现在趁着刚完成这一效果，将思路再重新理一遍。我将阐述如何一步一步实现导航栏功能的过程。</p>
+
+<h3 id="">首先请看下面的两张示意图</h3>
+
+<p><img src="/images/2014-03-14-1.png" alt="" title="Page-nav-1" /> <img src="/images/2014-03-14-2.png" alt="" title="Page-nav-2" /></p>
+
+<p><br /></p>
+
+<h3 id="_2">第一步：使容器占据整个页面</h3>
+
+<pre><code>html {
+    height: 100%;
+}
+body {
+    height: 100%;
+}
+#container {
+    height: 100%;
+    width: 100%;
+}</code></pre>
+
+<h3 id="_3">第二步：添加一个图标</h3>
+
+<pre><code>&lt;button class=&quot;site-nav-logo&quot;&gt;
+    &lt;span class=&quot;icons-logo&quot;&gt;G&lt;/span&gt;
+&lt;/button&gt;
+
+.site-nav-logo {
+    width: 44px;
+    height: 44px;
+    background: #333332;
+    color: #FFFFFF;
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    border: 0;
+}</code></pre>
+
+<h4 id="_4">注意：</h4>
+
+<p>这里的”border: 0;”，是因为button本身具有一定的边框。<br />这里的position是绝对定位。</p>
+
+<h3 id="_5">第三步：添加一个导航栏</h3>
+
+<pre><code>&lt;div class=&quot;site-nav&quot;&gt;
+    &lt;button class=&quot;site-nav-logo&quot;&gt;
+	    &lt;span class=&quot;icons-logo&quot;&gt;G&lt;/span&gt;
+    &lt;/button&gt;
+    &lt;div class=&quot;site-nav-scrollable-container&quot;&gt;
+	    &lt;ul class=&quot;site-nav-list&quot;&gt;
+		    &lt;li&gt;
+			    &lt;a class=&quot;site-nav-list-item-btn&quot; href=&quot;&quot;&gt;
+				    Home
+			    &lt;/a&gt;
+		    &lt;/li&gt;
+		    &lt;li&gt;
+			    &lt;a class=&quot;site-nav-list-item-btn&quot; href=&quot;&quot;&gt;
+				Fork me on Github
+			    &lt;/a&gt;
+		    &lt;/li&gt;
+	    &lt;/ul&gt;
+    &lt;/div&gt;
+&lt;/div&gt;
+
+.site-nav {
+    position: absolute;
+    left: 0;
+    top: 0;
+    bottom: 0;
+}
+
+.site-nav-scrollable-container {
+    display: none;
+    overflow: auto;
+    height: 100%;
+}</code></pre>
+
+<h4 id="_6">注意：</h4>
+
+<p>当未展现导航栏时，导航栏的display属性是none。</p>
+
+<h3 id="_7">第四步：添加按钮点击事件</h3>
+
+<pre><code>&lt;script&gt;
+    var body = $('body');
+    $('.site-nav-logo').click(function() {
+	    body.addClass('site-nav-drawer-open');
+    });
+&lt;/script&gt;
+
+.site-nav-drawer-open .site-nav-logo {
+    display: none;
+}
+
+.site-nav-drawer-open #container {
+    -webkit-transform: translate3d(280px,0,0);
+    -moz-transform: translate3d(280px,0,0);
+    -o-transform: translate3d(280px,0,0);
+    -ms-transform: translate3d(280px,0,0);
+    transform: translate3d(280px,0,0);
+}</code></pre>
+
+<p>当我们点击图标时，图标将会消失，然后我们的container将向右平移280个像素。<br />由于tranform的厂商的前缀是不同的，为了适应不同的浏览器， 我们需要通过Prefixr网站来自动生成相对应不同浏览器的transform前缀。</p>
+
+<pre><code>.site-nav-drawer-open .site-nav-scrollable-container {
+    display: block;
+    width: 280px;
+}</code></pre>
+
+<p>当container向右平移时，我们的导览栏将显示，宽度设置为container向右平移的宽度，即280像素。</p>
+
+<h3 id="_8">第五步：导航栏的收回</h3>
+
+<pre><code>&lt;div class=&quot;site-nav-overlay&quot;&gt;&lt;/div&gt;
+
+.site-nav-overlay {
+    display: none;
+    position: absolute;
+    left: 0;
+    top: 0;
+    right: 0;
+    bottom: 0;
+}
+
+.site-nav-drawer-open .site-nav-overlay {
+    left: 280px;
+    z-index: 900;
+    display: block;
+}</code></pre>
+
+<p>默认情况下它是铺满整个页面的，但实际上它是不存在的，这是因为它的默认属性为“display: none;”<br />而当我们点击我的图标时它将出现，它所占的空间即为距左侧边距280像素，直至屏幕右侧。<br />我们接下来所需要的工作就是当我们点击到右侧的屏幕时然后产生一定的反应，即导航栏收回。</p>
+<script>
+	    $('.site-nav-overlay').click(function(){
+		    body.removeClass('site-nav-drawer-open');
+	    });
+    </script>
+<h3 id="_9">第六步：导航栏划出时的平滑效果</h3>
+
+<p>在CSS代码的container中添加下面的代码，也需要通过Prefixr生成不同浏览器厂商的CSS代码。</p>
+
+<pre><code>#container {
+    height: 100%;
+    width: 100%;
+
+    -webkit-transition: -webkit-transform .2s cubic-bezier(0.2,0.3,0.25,0.9);	
+}</code></pre>
+
+<h3 id="_10">第七步：导航栏收回时的平滑效果</h3>
+
+<p>我们需要修改部分javascript代码<br />在点击图标的相应代码中添加点击时同时添加site-nav-transition类</p>
+
+<pre><code>$('.site-nav-logo').click(function() {
+    body.addClass('site-nav-transition site-nav-drawer-open');
+});</code></pre>
+
+<p>当导航栏滑动结束后，我们再隐藏site-nav。 setTimeout(function () { body.removeClass(“site-nav-transition”); }, 300);</p>
+
+<p>为了使container覆盖在导航栏之上，在CSS代码中添加以下内容</p>
+
+<pre><code>.site-nav-transition #container {
+    position: fixed;
+}</code></pre>
+
+<h3 id="_11">第八步：图标的渐变出现</h3>
+
+<pre><code>.site-nav-logo
+    -webkit-transition: opacity .3s linear;
+opacity: 1;
+
+.site-nav-transition .site-nav-logo {
+    opacity: 0;
+}</code></pre>
+
+<h4 id="_12">注意：</h4>
+
+<p>不能添加到”.site-nav-drawer-open .site-nav-logo”下，原因是该处的图标的”display”为none，它将不会出现任何效果。</p>
+
+<h3 id="_13">第九步：防止图标在滚动时消失</h3>
+
+<p>在container中再加入一块div，它的面积仍然适合container的大小是一样的</p>
+
+<pre><code>.scroll-region {
+	    height: 100%;
+    overflow: auto;
+
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    -ms-box-sizing: border-box;
+    box-sizing: border-box;
+}</code></pre>
+
+<p>这样的话网页中的主题内容将是在scroll-region内滚动的，这也解决了图标的”position”属性是绝对定位的问题。</p>
+
+<h2 id="other">Other</h2>
+
+<p>这次小项目的具体代码在我的GitHub网站上，点击 <a alt='nav' href='https://github.com/GuidoPaul/GuidoPaul.github.io' target='_blank'>[Nav]</a>就可以查看。</p>
+
+<p>通过这次小项目，让我更加熟悉地使用Firebug，以及网页的分层思想。 同时暴露单一一个屏幕会大大降低开发的效率，正好同寝室的室友定了一个二手的屏幕， 等它到货的时候我也准备去网上淘一个。</p>
+
+					</section>
+					<footer>
+						<div id="disqus_thread"></div>
+						<script type="text/javascript">
+							/* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+							var disqus_shortname = 'guidopaul'; // required: replace example with your forum shortname
+
+							/* * * DON'T EDIT BELOW THIS LINE * * */
+							(function() {
+								var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+								dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+								(document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+							})();
+						</script>
+						<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+						<a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+					</footer>
+				</div>
+			</div>
+		</div>
+
+		<script>
+			var body = $('body');
+			$('.site-nav-logo').click(function() {
+				body.addClass('site-nav-transition site-nav-drawer-open');
+			});
+			$('.site-nav-overlay').click(function(){
+				body.removeClass('site-nav-drawer-open');
+				setTimeout(function () {
+					body.removeClass("site-nav-transition");
+				}, 300);
+			});
+		</script>
+
+	</body>
+</html>
+

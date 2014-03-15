@@ -1,0 +1,169 @@
+<!--
+**
+* Author: GuidoPaul
+* Contact: Baoshenglin1994@gmail.com
+* Create Date: 2014.3.12
+**
+-->
+<!DOCTYPE html>
+
+<html>
+
+	<head>
+		<meta charset='utf-8'>
+		<!-- <meta http-equiv="X-UA-Compatible" content="chrome=1"> -->
+		<link href='https://fonts.googleapis.com/css?family=Chivo:900' rel='stylesheet' type='text/css'>
+		<link type="text/css" rel="stylesheet" href="http://fonts.googleapis.com/css?family=Knewave">
+		<link type="text/css" rel="stylesheet" href="http://fonts.googleapis.com/css?family=Cantata+One">
+		<link rel="stylesheet" type="text/css" href="/stylesheets/layout.css" />
+		<link rel="stylesheet" type="text/css" href="/stylesheets/nav.css" />
+		<script src="javascripts/jquery-2.0.3.js"></script>
+		<!--[if lt IE 9]>
+		<script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+		<![endif]-->
+		<title>GuidoPaul</title>
+	</head>
+
+	<body>
+		<div class="site-nav">
+			<button class="site-nav-logo">
+				<span class="icons-logo">G</span>
+			</button>
+			<div class="site-nav-scrollable-container">
+				<ul class="site-nav-list">
+					<li>
+						<a class="site-nav-list-item-btn" href="http://guidopaul.github.io/">
+							Home
+						</a>
+					</li>
+					<li>
+						<a class="site-nav-list-item-btn" href="https://github.com/GuidoPaul">
+							Fork me on Github
+						</a>
+					</li>
+				</ul>
+			</div>
+		</div>
+		<div class="site-nav-overlay"></div>
+		<div id="container">
+			<div class="scroll-region">
+				<div class="inner">
+					<header>
+						<h1>
+							<a>Guido's Blog</a>
+							<span> Learning, sharing, improving!</span>
+						</h1>
+					</header>
+					<hr />
+
+					<section id="main_content">
+						
+<article class="entry-article">
+	<header class="entry-header">
+		<span>14 Mar 2014</span>
+		<h1 class="entry-title">
+			<a href=" /2014/03/14/Pages-nav.html ">
+				Pages Nav
+			</a>
+		</h1>
+	</header>
+	<div class="entry-content">
+		<p>
+			前几天花了一个下午的时间在我的GitHub网页上做了一个具有简易功能的导航栏。这个导航栏可以在我们使用不到导航栏的时候，将它隐藏起来。相对有效的减少普通导航栏占用屏幕空间的问题，并且十分美观。这个导航栏的功能十分简单，操作时只需要轻轻一点击界面右上角的“G”图标，该“G”图标就会随之消失，与此同时会从浏览器的左侧划出导航栏，然后再一次点击右侧的浏览器的内容就可以使导航栏收回。并且“G”图标又会重新回到刚才的界面上。现在趁着刚完成这一效果，将思路再重新理一遍。我将阐述如何一步一步实现导航栏功能的过程。
+		</p>
+	</div>
+	<footer class="entry-footer">
+		<a href=" /2014/03/14/Pages-nav.html " rel="full-article">
+			Read More →
+		</a>
+	</footer>
+</article>
+
+<article class="entry-article">
+	<header class="entry-header">
+		<span>26 Feb 2014</span>
+		<h1 class="entry-title">
+			<a href=" /2014/02/26/DisQus-comment-system.html ">
+				为你的GitHub Pages添加DisQus评论系统
+			</a>
+		</h1>
+	</header>
+	<div class="entry-content">
+		<p>
+			之前的一段时间开始入门HTML和CSS，就琢磨着自己尝试做个网页，经同学的介绍，GitHub可以搭建免费的静态网页，本人就开始自己尝试着去接触一下。乘着今天课程不多，抽出时间了解了一下博客下端的评论系统。大家可以看一下现在博客的下面的评论系统，它就是我今天的学习成果了。它叫 DisQus ，怎么样，不错吧。
+		</p>
+	</div>
+	<footer class="entry-footer">
+		<a href=" /2014/02/26/DisQus-comment-system.html " rel="full-article">
+			Read More →
+		</a>
+	</footer>
+</article>
+
+<article class="entry-article">
+	<header class="entry-header">
+		<span>19 Jan 2014</span>
+		<h1 class="entry-title">
+			<a href=" /2014/01/19/my-second-blog.html ">
+				My Second Blog
+			</a>
+		</h1>
+	</header>
+	<div class="entry-content">
+		<p>
+			
+		</p>
+	</div>
+	<footer class="entry-footer">
+		<a href=" /2014/01/19/my-second-blog.html " rel="full-article">
+			Read More →
+		</a>
+	</footer>
+</article>
+
+<article class="entry-article">
+	<header class="entry-header">
+		<span>19 Jan 2014</span>
+		<h1 class="entry-title">
+			<a href=" /2014/01/19/hello-world.html ">
+				Hello World
+			</a>
+		</h1>
+	</header>
+	<div class="entry-content">
+		<p>
+			
+		</p>
+	</div>
+	<footer class="entry-footer">
+		<a href=" /2014/01/19/hello-world.html " rel="full-article">
+			Read More →
+		</a>
+	</footer>
+</article>
+
+
+					</section>
+
+					<footer>
+						<p class="copyright">Copyright © 2014 - Shenglin Bao</p>
+					</footer>
+				</div>
+			</div>
+		</div>
+
+		<script>
+			var body = $('body');
+			$('.site-nav-logo').click(function() {
+				body.addClass('site-nav-transition site-nav-drawer-open');
+			});
+			$('.site-nav-overlay').click(function(){
+				body.removeClass('site-nav-drawer-open');
+				setTimeout(function () {
+					body.removeClass("site-nav-transition");
+				}, 300);
+			});
+		</script>
+
+	</body>
+</html>
