@@ -8,7 +8,9 @@
 }
 
 .icons-logo {
-	font-size: 200%;
+	font-family: 'Chivo','Helvetica Neue',Helvetica,Arial,serif;
+	font-size: 3em;
+	line-height: 40px;
 }
 
 .site-nav-scrollable-container {
@@ -25,6 +27,7 @@
 }
 
 .site-nav-scrollable-container a {
+	font-family: "Cantata One",Georgia,Times,"Times New Roman",serif;
 	text-decoration: none;
 }
 
