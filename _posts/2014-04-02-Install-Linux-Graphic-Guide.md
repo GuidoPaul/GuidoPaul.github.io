@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Install Linux Grapic Turorial
+title: Install Linux Graphic Guide
 description: 使用Linux系统也有一段时间了，今天我来总结一下在已经自带Windous系统的情况下安装 Linux 双系统的两种方法，一种是使用U盘来安装，另一种是使用硬盘来安装。我个人认为使用U盘安装的优势更大一些。而且这种方式适应于几乎任何一种Linux的安装。在本教程中主要以Debian发行版为例进行讲解，教程中还将包括如何完全地卸载Linux。通过多次的安装经验可得，在安装过程中主要解决是安装引导的问题，只要解决了这个大问题，其它的只需要跟着提示做就行了。下面就让我们开始吧！
 ---
 
