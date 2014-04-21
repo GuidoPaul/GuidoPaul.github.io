@@ -32,19 +32,19 @@
 			<div class="site-nav-scrollable-container">
 				<ul class="site-nav-list">
 					<li>
-						<a class="site-nav-list-item-btn" href="http://guidopaul.github.io/">
-							Home
-						</a>
+					<a class="site-nav-list-item-btn" href="http://guidopaul.github.io/">
+						Home
+					</a>
 					</li>
 					<li>
-						<a class="site-nav-list-item-btn" href="https://github.com/GuidoPaul">
-							Fork me on Github
-						</a>
+					<a class="site-nav-list-item-btn" href="https://github.com/GuidoPaul">
+						Fork me on Github
+					</a>
 					</li>
 					<li>
-						<a class="site-nav-list-item-btn" href="http://guidopaul.github.io/2014/03/26/About-Me.html">
-							About Me
-						</a>
+					<a class="site-nav-list-item-btn" href="http://guidopaul.github.io/2014/03/26/About-Me.html">
+						About Me
+					</a>
 					</li>
 				</ul>
 			</div>
@@ -54,23 +54,25 @@
 			<div class="scroll-region">
 				<div class="inner">
 					<header>
-						<h1>
-							<a>Guido's Blog</a>
-							<span> Learning, sharing, improving!</span>
-						</h1>
+					<h1>
+						<a>Guido's Blog</a>
+						<span> Learning, sharing, improving!</span>
+					</h1>
 					</header>
 					<hr />
 
 					<section id="main_content">
-						{{ content }}
+					{{ content }}
 					</section>
 
 					<footer>
-						<p class="copyright">Copyright © 2014 - Shenglin Bao</p>
+					<p class="copyright">Copyright © 2014 - Shenglin Bao</p>
 					</footer>
 				</div>
+				<div id="gotop"></div>
 			</div>
 		</div>
+
 
 		<script>
 			var body = $('body');
@@ -82,6 +84,32 @@
 				setTimeout(function () {
 					body.removeClass("site-nav-transition");
 				}, 300);
+			});
+		</script>
+
+		<script type="text/javascript">
+			function goTop() {
+				$('.scroll-region').scroll(function(e) {
+					//若滚动条离顶部大于100元素
+					if($('.scroll-region').scrollTop()>100)
+						$("#gotop").fadeIn(1000);//以1秒的间隔渐显id=gotop的元素
+					else
+						$("#gotop").fadeOut(1000);//以1秒的间隔渐隐id=gotop的元素
+				});
+			};
+			$(function() {
+				//点击回到顶部的元素
+				$("#gotop").click(function(e) {
+					//以1秒的间隔返回顶部
+					$('.scroll-region,body,html').animate({scrollTop:0},1000);
+				});
+				$("#gotop").mouseover(function(e) {
+					$(this).css("background","url(/images/backtop.png) no-repeat 0px 0px");
+				});
+				$("#gotop").mouseout(function(e) {
+					$(this).css("background","url(/images/backtop.png) no-repeat 0px 0px");
+				});
+				goTop();//实现回到顶部元素的渐显与渐隐
 			});
 		</script>
 
