@@ -1,0 +1,102 @@
+---
+layout: post
+title: 安装 Window 后修复 Grub 引导
+description: 最近由于暑假短学期的课程中需要学习 3Ds Max，一开始我打算在Debian的虚拟机上运行 3Ds Max，后来发现这想法太幼稚了，3Ds Max装在虚拟机上由于显存不够，正中间的四个视图窗口根本显示不出来。那么就打算在原实体机 Windows7 上装3Ds Max软件。因为 Window7 好久没用了，就想着顺便把它也重新安装一下吧。故事就这么发生了。
+---
+
+最近由于暑假短学期的课程中需要学习 3Ds Max，一开始我打算在Debian的虚拟机上运行 3Ds Max，
+后来发现这想法太幼稚了，3Ds Max装在虚拟机上由于显存不够，正中间的四个视图窗口根本显示不出来。
+那么就打算在原实体机 Windows7 上装3Ds Max软件。因为 Window7 好久没用了，就想着顺便把它也重新安装一下吧。
+故事就这么发生了。
+
+我分别用 Ghost 版本的和非 Ghost（原版） 版本的 Windows7 安装完之后，会有两种情况发生。
+当我用的是 Ghost 版本的 Window7 的时候，开机时的 Grub 引导不会发生什么问题，最多是 uuid 显示错误（这个问题之后会解决）。
+当我用的是非 Ghost（原版）版本的 Window7 的时候，开机时就会覆盖了 Grub 引导，这样我们就不能通过引导进入 Linux 系统了。
+这里主要阐述当重装完 Window7 之后，如何重装 Grub 引导以及在 Grub 上添加进入 Window7 的选项。
+
+# 一、前期准备
+## LiveCD
+本人使用的 Debian7，这是 Debian7 的 [LiveCD](http://cdimage.debian.org/debian-cd/current-live/amd64/iso-hybrid/) 下载网址。
+大家可以到相应的 Linux 发行版的下载地址中找到相应版本的 LiveCD 。
+## U盘安装所需工具
+[UNetbootin](http://unetbootin.sourceforge.net/)：可制作启动盘
+
+U盘：一个够装下3.7G内容的U盘。
+
+# 二、制作LiveCD启动盘
+具体内容可查看[Install Linux Graphic Guide](http://guidopaul.github.io/2014/04/02/Install-Linux-Graphic-Guide.html)
+中用U盘安装Debian7的内容，只是将安装的镜像文件换成了 LiveCD。
+
+# 三、重新安装Grub
+有了LiveCD启动盘后，我们开机通过修改启动项进入U盘启动。通过选择 Live 项目，进入Live Linux，这就好比进入了 WinPE。
+在Live Linux中我们可以看到磁盘中所有的盘符，有C盘、D盘，Linux的根目录，Linux的Home等有好多。
+我们可以通过命令 fdisk -l 查看磁盘的分区情况，这条命令需要在 root 权限下运行。通过查看盘符的大小确定 Linux 的根目录和 boot 分区（如果有的话）。
+我们可以通过命令 mount /dev/sdax /mnt 将某个盘符挂载到/mnt上。也可以通过 umount /mnt 将挂载在 /mnt 上的盘符卸载掉。
+本人的实际情况是 /dev/sda8 为 Linux 根目录盘，/dev/sda3 为 Linux的 boot 分区，具体操作如下：
+		
+		sudo -i
+		mount /dev/sda8 /mnt
+		mount /dev/sda3 /mnt/boot
+		chroot /mnt
+		grub-install /dev/sda
+		update-grub
+
+这里重点提一下，当遇到执行 grub-install 命令的时候会报出命令没找到提示。
+
+		grub-install: command not found
+
+解决方案是在chroot /mnt前继续执行挂载命令
+
+		mount --bind /dev /mnt/dev
+
+这样 grub-install 的命令就有了，主要原因是在LiveCD的Linux中没有这条命令，而在原Linux中有这条命令。
+这里解释一下 chroot /mnt 命令，意思是切换根目录到 /mnt 盘。
+弄到这里我们重启后就会发现 Grub 引导已经重装好了，但是 Windows 的选项消失了，那就又不能进入 Window7 了。
+
+# 四、Grub引导添加 Window7 启动选项
+正常进入 Linux 后，通过修改 /boot/grub/grub.cfg 添加 Window7 选项。
+
+		vim /boot/grub/grub.cfg
+	
+在 grub.cfg 文件中 找到下面的内容
+
+		### BEGIN /etc/grub.d/30_os_prober ###
+		### END /etc/grub.d/30_os_prober ###
+
+然后在这两行中间插入需要的内容，就变成了下面这样
+
+		### BEGIN /etc/grub.d/30_os_prober ###
+		menuentry 'Windows 7 Ultimate' {
+			insmod part_msdos
+			insmod ntfs
+			set root='(hd0,msdos1)'
+			chainloader +1
+		}
+		### END /etc/grub.d/30_os_prober ###
+
+修改 grub.cfg 内容的时候会提示这是一份只读文件，放心输入:w!好了。
+
+可能会有人问这和网上找到的其他资料中不一样呀，好像少了一句。别担心，当你保存后，在终端运行下面的命令
+
+		update-grub
+	
+现在再回去看一下刚才修改的内容，它又会被自动修改成下面这样
+
+		### BEGIN /etc/grub.d/30_os-prober ###
+		menuentry "Windows 7 (loader) (on /dev/sda1)" --class windows --class os {
+			insmod part_msdos
+			insmod ntfs
+			set root='(hd0,msdos1)'
+			search --no-floppy --fs-uuid --set=root 6654189254186759
+			chainloader +1
+		}
+		### END /etc/grub.d/30_os-prober ###
+
+文章一开始说到的 uuid 错误在这里也就解决了。
+现在我们可以重启一下电脑，就会发现 Grub 引导中已经添加了 Window7 的启动选项。
+
+# 温馨提示
+本人使用的是 联想Y480 ，当我下载联想官网的 一键乐驱动 然后通过它装电脑驱动。每次装完后重启，
+到了看到组成 Windows7 图标的四个小球出现的时候就又开始重启了，进都进不了 Window7 。
+可能是本人的机子有问题，但如果遇到和本人一样问题的童鞋，还是去官网里下载需要的驱动，然后一个一个手动装吧。
+
