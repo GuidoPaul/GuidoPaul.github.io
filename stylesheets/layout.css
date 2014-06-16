@@ -181,3 +181,22 @@ hr {
 	margin-top: 1em;
 	padding-bottom: 1em;
 }
+
+@font-face {
+	font-family:knewave;
+	font-style:Regular;
+	src: url(../font/knewave.ttf);
+}
+
+@font-face {
+	font-family:Cantata One;
+	font-style:Regular;
+	src: url(../font/CantataOne-Regular.ttf);
+}
+
+@font-face {
+	font-family:Chivo;
+	font-style:BlackItalic;
+	src: url(../font/Chivo-Black.ttf);
+}
+

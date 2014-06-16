@@ -97,3 +97,10 @@ hr {
 	padding-bottom: 1em;
 }
 
+@font-face {
+	font-family:Chivo;
+	font-style:BlackItalic;
+	src: url(../font/Chivo-Black.ttf);
+}
+
+
