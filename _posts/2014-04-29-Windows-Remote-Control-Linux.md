@@ -14,16 +14,16 @@ description: 在日常生活中，我们可能会遇到这样的情况，我们�
 一开始在我的Debian上并没有安装ssh-server服务，导致我使用工具时，总是无法成功访问。
 按着下面的步骤开启ssh-server服务：
 
-		apt-get install openssh-server(root)
+	apt-get install openssh-server(root)
 
 由于Debian、Ubuntu上缺省安装了openssh-client，所以这里我不需要再安装了。
 然后确认ssh-server是否启动：
 
-		ps -e | grep ssh
+	ps -e | grep ssh
 
 如果看到"sshd"那说明ssh-server已经启动了。但如果只看到ssh-agent，你就需要手动开启服务了，如下：
 
-		/etc/init.d/ssh start
+	/etc/init.d/ssh start
 
 ## 二、使用Putty访问Linux系统
 ### 1.Download
@@ -49,7 +49,7 @@ SecureCRT除了具备了终端仿真器的功能，还提供了文件传输功�
 我们只需要在终端输入"sz filename"或者"rz"就可以下载和上传文件了。
 不过在这之前我们仍需要一些准备，就是下载相应的软件，如下：
 
-		apt-get install lrzsz(root)
+	apt-get install lrzsz(root)
 
 一切准备就绪后，我们就可以去官网下载并安装[SecureCRT](http://www.vandyke.com/download/securecrt/download.html/)。
 
