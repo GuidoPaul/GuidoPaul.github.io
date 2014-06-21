@@ -13,18 +13,18 @@ description: 使用Linux系统也有一段时间了，今天我来总结一下�
 # 一、前期准备
 
 ## DVD的镜像文件
-1. 64位镜像文件地址:
+### 1. 64位镜像文件地址:
 `http://cdimage.debian.org/debian-cd/7.4.0/amd64/iso-dvd/`
-2. 32位镜像文件地址:
+### 2. 32位镜像文件地址:
 `http://cdimage.debian.org/debian-cd/7.4.0/i386/iso-dvd/`
 ## U盘安装所需工具：
 [UNetbootin](http://unetbootin.sourceforge.net/)与一个够装下3.7G内容的U盘。
 ## 硬盘安装所需工具：
 EasyBCD以及vmlinuz和initrd.gz，后两个工具的链接：
 
-1. 64位工具地址：
+### 1. 64位工具地址：
 http://ftp.cn.debian.org/debian/dists/Debian7.4/main/installer-amd64/current/images/hd-media/
-2. 32位工具地址：
+### 2. 32位工具地址：
 http://ftp.cn.debian.org/debian/dists/Debian7.4/main/installer-i386/current/images/hd-media/
 
 要注意的是版本号的问题，该网址只会提供最新的工具，所以当Debian7的版本变为7.5或7.6的时候，
@@ -106,10 +106,10 @@ http://ftp.cn.debian.org/debian/dists/Debian7.4/main/installer-i386/current/imag
 	swap 8G
 	/home 62G
 
-1. 安装中如遇到域名设置或IP设置等可以略过。
-2. 安装中如遇到缺少某驱动文件时，记得将它记录下来，我遇到的是缺少wifi驱动，
+### 1. 安装中如遇到域名设置或IP设置等可以略过。
+### 2. 安装中如遇到缺少某驱动文件时，记得将它记录下来，我遇到的是缺少wifi驱动，
 然后我安装完成后通过刚才记录的内容下载了firmware-iwlwifi_0.36+wheezy.1_all.deb，并安装上去就没有问题了。
-3. 一个容易出错的地方，当我们完成分区后，有提示我们 EFI分区引导未找到，这时我们就不要再继续进行了，
+### 3. 一个容易出错的地方，当我们完成分区后，有提示我们 EFI分区引导未找到，这时我们就不要再继续进行了，
 而是需要退出并重启电脑，然后进入BIOS设置(修改启动项页面)中找到并关闭UEFI。重启后我们就可以继续完成安装了。
 
 # 五、完全卸载Linux
