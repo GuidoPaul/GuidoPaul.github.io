@@ -26,6 +26,7 @@ description: 在日常生活中，我们可能会遇到这样的情况，我们�
 	/etc/init.d/ssh start
 
 ## 二、使用Putty访问Linux系统
+
 ### 1.Download
 我们可以到Putty的官网上下载[Putty](http://www.putty.org/)软件。
 下载后就可以使用该软件，它是免安装的。打开后如下图所示：
@@ -44,6 +45,7 @@ description: 在日常生活中，我们可能会遇到这样的情况，我们�
 若不喜欢这里的字体，你也可以通过Window下的Appearance的右边框选择你喜欢的字体，这里推荐使用Courier New字体。
 
 ## 三、使用SecureCRT访问Linux系统
+
 ### 1.SecureCRT的文件传输功能
 SecureCRT除了具备了终端仿真器的功能，还提供了文件传输功能。
 我们只需要在终端输入"sz filename"或者"rz"就可以下载和上传文件了。

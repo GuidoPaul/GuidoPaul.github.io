@@ -14,6 +14,7 @@ JDK作为Java开发工具包，主要用于构建在Java平台上运行的应用
 现在的最新版本是Jdk8，点击进入[官网](http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html)下载。
 
 # 二、安装JDK
+
 ### 1.在/usr/local下创建java文件夹
 
 	sudo mkdir /usr/local/java
@@ -32,6 +33,7 @@ JDK作为Java开发工具包，主要用于构建在Java平台上运行的应用
 	sudo rm jdk-8u5-linux-x64.tar.gz
 
 # 三、配置环境变量
+
 ### 1.修改系统配置文件
 
 	sudo vim /etc/profile
@@ -57,7 +59,9 @@ JDK作为Java开发工具包，主要用于构建在Java平台上运行的应用
 	Java HotSpot(TM) 64-Bit Server VM (build 25.5-b02, mixed mode)
 
 # 四、编译和运行Java文件
+
 ### 前提: 以下所有 Java 示例文件在 JavaDemo 文件下运行
+
 ### 知识点: java的类的全名: 全限定名 = 包名 + 类名
 
 ### 1.单独运行JavaDemo1.java程序

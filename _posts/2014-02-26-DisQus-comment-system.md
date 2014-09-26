@@ -21,12 +21,14 @@ GitHub可以搭建免费的静态网页，本人就开始自己尝试着去接�
 ![DisQus's official website](/images/2014-02-26-1.png)
 <br />
 需要填写你的Username，Email address，Password。
+
 ### 第二步：填入相关信息
 我们会默认进入一个添加你的站点的页面，你需要填写你的Site name 和 DisQus URL，
 其中 Disqus URL 中填写的内容将成为你的“shortname”，之后可能会需要它。
 <br />
 ![Site profile](/images/2014-02-26-2.png)
 <br />
+
 ### 第三步：嵌入代码
 与其说是安装DisQus，倒不如直接说是一种代码的嵌入。
 经过以上步骤的填写，我们会看到以下页面。
