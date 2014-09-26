@@ -103,4 +103,6 @@ hr {
 	src: url(../font/Chivo-Black.ttf);
 }
 
-
+code {
+	font-size: 1.5em;
+}
