@@ -97,12 +97,13 @@ hr {
 	padding-bottom: 1em;
 }
 
+code {
+	font-size: 1.5em;
+}
+
 @font-face {
 	font-family:Chivo;
 	font-style:BlackItalic;
 	src: url(../font/Chivo-Black.ttf);
 }
 
-code {
-	font-size: 1.5em;
-}
