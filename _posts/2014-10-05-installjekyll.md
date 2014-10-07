@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Jekyll Install in Debian7
+title: Install Jekyll in Debian7
 description: 今天讲一下我在Debian7上如何安装Jekyll以及在安装过程中发生的一些问题。首先我为什么要安装Jekyll，由于之前在发布Github站点时，没有注意语法细节，使得站点内容会发生一些错误，这时Github就会通过邮箱通知你，告诉你的站点存在一些问题。所以安装Jekyll主要用于调式我的Github站点。这里由于Debian7上的很多依赖包比较旧，所以在安装过程中也会出现一些问题。
 ---
 
