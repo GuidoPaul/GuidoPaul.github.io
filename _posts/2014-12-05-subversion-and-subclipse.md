@@ -20,7 +20,7 @@ Subclipse客户端工具。然后通过局域网，让我的另一个团队成�
 
 ## 二、配置服务器端Subversion
 
-现在需要创建一个目录用来储存我们的站点，我选择的目录在/home/svn.
+现在需要创建一个目录用来储存我们的站点，我选择的目录在/home/svn
 
 	sudo mkdir /home/svn
 
@@ -34,7 +34,7 @@ conf/ db/ format hooks/ locks/ README.txt
 
 我们需要对 conf/ 下的三个配置文件进行修改，它们分别是
 
-svnserve.conf passwd authz
+svnserve.conf &emsp;&emsp; passwd &emsp;&emsp; authz
 
 	sudo vim conf/svnserve.conf
 	sudo vim conf/passwd
@@ -42,32 +42,35 @@ svnserve.conf passwd authz
 
 ### *需要注意的是：把下面出现的语句前面的'#'去掉，然后左对齐，最左端不能有空格
 
-	svnserve.conf
-	[general]
-	anon-access = none
-	auth-access = write
-	password-db = passwd
-	authz-db = authz
-	realm = /home/svn/repos
+1) svnserve.conf
 
-	passwd
-	[users]
-	# harry = harryssecret
-	# sally = sallyssecret
-	bao = bao
-	hong = hong
+[general]  
+anon-access = none  
+auth-access = write  
+password-db = passwd  
+authz-db = authz  
+realm = /home/svn/repos  
 
-	authz
-	[groups]
-	# harry_and_sally = harry,sally
-	# harry_sally_and_joe = harry,sally,&joe
-	ggroup = bao,hong
+2) passwd  
 
-	[/]
-	@ggroup = rw
+[users]  
+# harry = harryssecret  
+# sally = sallyssecret  
+bao = bao  
+hong = hong  
 
-	[repos:/]
-	@ggroup = rw
+3) authz  
+
+[groups]  
+# harry_and_sally = harry,sally  
+# harry_sally_and_joe = harry,sally,&joe  
+ggroup = bao,hong  
+
+[/]  
+@ggroup = rw  
+
+[repos:/]  
+@ggroup = rw  
 
 配置完成之后，我们需要启动svn服务器，3690为svn的默认端口号
 
@@ -82,7 +85,7 @@ svnserve.conf passwd authz
 
 	sudo vim /etc/rc.local
 
-在文件最后加入 svnserve -d -r /home/svn/repos 即可
+在文件最后加入 “svnserve -d -r /home/svn/repos” 即可
 
 ## 三、配置apache加载subversion模块
 
@@ -96,14 +99,14 @@ svnserve.conf passwd authz
 
 在 apache2.conf 的最后加上以下内容
 
-	<Location "/svn">
-		DAV svn
-		SVNParentPath /home/svn
-		AuthType Basic
-		AuthName "repos"
-		AuthUserFile /etc/svn-auth
-		Require valid-user
-	</Location>
+<Location "/svn">  
+&emsp;&emsp;DAV svn  
+&emsp;&emsp;SVNParentPath /home/svn  
+&emsp;&emsp;AuthType Basic  
+&emsp;&emsp;AuthName "repos"  
+&emsp;&emsp;AuthUserFile /etc/svn-auth  
+&emsp;&emsp;Require valid-user  
+</Location>  
 
 为登录添加帐号及密码，帐号密码同之前在 conf/ 下设置的 passwd 无关
 
@@ -192,12 +195,12 @@ Window -> show View -> SVN Repositories
 
 打开SVN Repositorie时会出现以下的错误
 
-	Failed to load JavaHL Library.
-	These are the errors that were encountered:
-	no libsvnjavahl-1 in java.library.path
-	no svnjavahl-1 in java.library.path
-	no svnjavahl in java.library.path
-	java.library.path = /usr/lib/jni
+Failed to load JavaHL Library.  
+These are the errors that were encountered:  
+no libsvnjavahl-1 in java.library.path  
+no svnjavahl-1 in java.library.path  
+no svnjavahl in java.library.path  
+java.library.path = /usr/lib/jni  
 
 这个错误告诉我们需要安装 JavaHL 库，执行安装命令
 
@@ -216,12 +219,13 @@ Window -> show View -> SVN Repositories
 
 例如：
 
-	-Djava.library.path=/usr/lib/jni
+-Djava.library.path=/usr/lib/jni
 
 或者
 
-	-Djava.library.path=/usr/lib/x86_64-linux-gnu/jni/ 
-	-Djava.library.path=/usr/lib/i386-linux-gnu/jni/ 
+-Djava.library.path=/usr/lib/x86_64-linux-gnu/jni/ 
+
+-Djava.library.path=/usr/lib/i386-linux-gnu/jni/ 
 
 修改完成之后重启MyEclipse，但是还是出现了一些问题
 
